@@ -9,16 +9,17 @@
 #import <Foundation/Foundation.h>
 //#import <objc/objc-runtime.h>
 
+@protocol PersonDelegate
+- (void)hello;
+@end
 //协议
-@interface Person :NSObject <NSCopying>{
- @public
+@interface Person :NSObject <PersonDelegate>{
+@public
     int  _age; //实例变量
 }
 @property (nonatomic, assign) int sex; //属性
 
-@property (nonatomic, assign, class) int personCount; //属性
-
-
+@property (nonatomic, weak) id<PersonDelegate> personDelegate;
 - (void)personInstanceMethod; //实例方法
 + (void)personClassMethod; //类方法
 @end
@@ -26,7 +27,36 @@
 @implementation Person
 - (void)personInstanceMethod {}
 + (void)personClassMethod {}
+
+- (void)hello {}
+
 @end
+
+@protocol ManDelegate
+- (void)helloMan;
+@end
+//协议
+@interface Man  :Person <ManDelegate>{
+@public
+    int  _mage; //实例变量
+}
+@property (nonatomic, assign) int msex; //属性
+
+@property (nonatomic, weak) id<ManDelegate> manDelegate;
+- (void)ManInstanceMethod; //实例方法
++ (void)ManClassMethod; //类方法
+@end
+
+@implementation Man
+- (void)ManInstanceMethod {}
++ (void)ManClassMethod {}
+//覆盖
+- (void)personInstanceMethod {}
+
+- (void)helloMan {};
+
+@end
+
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
