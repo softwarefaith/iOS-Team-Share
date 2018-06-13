@@ -83,9 +83,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     
-    [self test];
-    return;
-    
+   
     Person *person1 = [[Person alloc] init];
     Person *person2 = [[Person alloc] init];
     

@@ -16,7 +16,11 @@ typedef  void (^Block)(void);
 
 @interface MyBlockObj : NSObject
 
+@property(nonatomic, strong) dispatch_queue_t queue;
+
 - (void)method;
+
+- (void)asyn;
 @property(nonatomic,copy)Block block;
 
 
@@ -46,6 +50,16 @@ typedef  void (^Block)(void);
     
 }
 
+- (void)asyn {
+    self.queue = dispatch_queue_create("com.mljr.Block", DISPATCH_QUEUE_CONCURRENT);
+
+    dispatch_async(self.queue, ^{
+        
+       // sleep(2);
+        NSLog(@"my name is queue -%d",_age);
+    });
+}
+
 
 @end
 
@@ -58,7 +72,7 @@ int main(int argc, const char * argv[]) {
     {
         MyBlockObj *blockObj = [[MyBlockObj alloc] init];
         
-        [blockObj method];
+        [blockObj asyn];
         
         NSLog(@"Outer = %@",[blockObj valueForKey:@"_age"]);
 

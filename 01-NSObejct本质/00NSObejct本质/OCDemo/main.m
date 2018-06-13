@@ -7,13 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <objc/runtime.h>
+#import <malloc/malloc.h>
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
         NSObject *o = [[NSObject alloc] init];
         
-        NSLog(@"Hello, World!");
+        NSLog(@"%zd -- %zd",class_getInstanceSize([o class]), malloc_size((__bridge void *)o));
     }
     return 0;
 }

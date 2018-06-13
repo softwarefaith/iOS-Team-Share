@@ -23,6 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2E43AC8820D0F68F00DA3420 /* maim-arm64.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "maim-arm64.cpp"; sourceTree = "<group>"; };
 		2EF3AF9F20661CC4007ED8E6 /* OCDemo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OCDemo; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF3AFC920666FAF007ED8E6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -57,6 +58,7 @@
 		2EF3AFA120661CC4007ED8E6 /* OCDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2E43AC8820D0F68F00DA3420 /* maim-arm64.cpp */,
 				2EF3AFC920666FAF007ED8E6 /* main.m */,
 			);
 			path = OCDemo;
