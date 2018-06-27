@@ -7,15 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <objc/runtime.h>
-#import <malloc/malloc.h>
+//#import <objc/runtime.h>
+//#import <malloc/malloc.h>
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
-        NSObject *o = [[NSObject alloc] init];
         
-        NSLog(@"%zd -- %zd",class_getInstanceSize([o class]), malloc_size((__bridge void *)o));
+        int  a = 10;
+        NSObject *o = [[NSObject alloc] init];
+        NSLog(@"a address = %p",&a);
+
+        NSLog(@"o address = %p",&o);
+
+        
+       // NSLog(@"%zd -- %zd",class_getInstanceSize([o class]), malloc_size((__bridge void *)o));
     }
     return 0;
 }
