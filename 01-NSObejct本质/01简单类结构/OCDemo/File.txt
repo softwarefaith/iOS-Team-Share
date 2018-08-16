@@ -1,0 +1,7 @@
+
+struct personStruct {
+Class  isa;
+int idnum;
+int age;
+char *name;
+};

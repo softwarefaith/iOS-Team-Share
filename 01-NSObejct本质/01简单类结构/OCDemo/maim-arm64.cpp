@@ -32167,7 +32167,9 @@ extern "C" unsigned long OBJC_IVAR_$_Person$_idNum;
 extern "C" unsigned long OBJC_IVAR_$_Person$_age;
 extern "C" unsigned long OBJC_IVAR_$_Person$_name;
 struct Person_IMPL {
-	struct NSObject_IMPL NSObject_IVARS;
+	//struct NSObject_IMPL NSObject_IVARS;
+    
+    class isa;
 	int _idNum;
 	int _age;
 	NSString *__strong _name;

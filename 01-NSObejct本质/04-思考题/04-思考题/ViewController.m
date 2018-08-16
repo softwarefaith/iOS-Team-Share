@@ -36,7 +36,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    Person *p =[[Person alloc] init];
+  //  NSObject *o =[[NSObject alloc] init];
     
+    [self test];
+    
+    
+}
+
+- (void)test {
     id cls = [Person class];
     
     void *obj = &cls;

@@ -9,7 +9,23 @@
 #import <Foundation/Foundation.h>
 //#import <objc/objc-runtime.h>
 
-
+/*
+ 
+ struct Person_IMPL {
+ struct NSObject_IMPL NSObject_IVARS;
+ int _idNum;
+ int _age;
+ NSString *_name;
+ int cnum;
+ int mnum;
+ 
+ -------
+ NSString *_pName;
+ NSArray *_pArrays;
+ NSString *_cName;
+ };
+ 
+ */
 
 @interface Person :NSObject {
     

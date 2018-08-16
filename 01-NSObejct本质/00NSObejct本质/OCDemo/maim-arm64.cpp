@@ -106,7 +106,6 @@ struct __AtAutoreleasePool {
 };
 
 #define __OFFSETOFIVAR__(TYPE, MEMBER) ((long long) &((TYPE *)0)->MEMBER)
-static __NSConstantStringImpl __NSConstantStringImpl__var_folders_b1_ry12_cld4ggf3wylfqhh1pmw0000gn_T_main_ddbc23_mi_0 __attribute__ ((section ("__DATA, __cfstring"))) = {__CFConstantStringClassReference,0x000007c8,"Hello, World!",13};
 
 
 
@@ -7164,7 +7163,6 @@ typedef struct objc_object NSObject;
 typedef struct {} _objc_exc_NSObject;
 #endif
 
-//TODO：
 struct NSObject_IMPL {
 	Class isa;
 };
@@ -10481,7 +10479,6 @@ typedef struct {} _objc_exc_NSDictionary;
 typedef struct objc_object NSValue;
 typedef struct {} _objc_exc_NSValue;
 #endif
-
 
 struct NSValue_IMPL {
 	struct NSObject_IMPL NSObject_IVARS;
@@ -32153,12 +32150,16 @@ struct NSUUID_IMPL {
 
 #pragma clang assume_nonnull end
 
+
+
 int main(int argc, const char * argv[]) {
     /* @autoreleasepool */ { __AtAutoreleasePool __autoreleasepool; 
 
+
         NSObject *o = ((NSObject *(*)(id, SEL))(void *)objc_msgSend)((id)((NSObject *(*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass("NSObject"), sel_registerName("alloc")), sel_registerName("init"));
 
-        NSLog((NSString *)&__NSConstantStringImpl__var_folders_b1_ry12_cld4ggf3wylfqhh1pmw0000gn_T_main_ddbc23_mi_0);
+
+
     }
     return 0;
 }

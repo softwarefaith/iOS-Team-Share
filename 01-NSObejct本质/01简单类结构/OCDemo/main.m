@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import <objc/objc-runtime.h>
-
+#import <objc/objc-runtime.h>
+#import <malloc/malloc.h>
 @interface Person :NSObject {
     
  @public
@@ -27,13 +27,14 @@
 
 @end
 
+
+
 struct personStruct {
     Class  isa;
     int idnum;
     int age;
     char *name;
 };
-
 
 
 
@@ -51,14 +52,19 @@ int main(int argc, const char * argv[]) {
         
         
         //验证 Struc  与 person  对象
-//        struct personStruct *p = (__bridge struct personStruct *)person;
-//        NSLog(@"person = %zd,%zd,%@",p->idnum,p->age,p->name);
+        struct personStruct *p = (__bridge struct personStruct *)person;
+        NSLog(@"person = %zd,%zd,%@",p->idnum,p->age,p->name);
         
-        //person 对象的size
-//        NSLog(@"NSObject size = %zd, person size = %zd",
-//              class_getInstanceSize([NSObject class]),
-//              class_getInstanceSize([person class])
-//              );
+       // person 对象的size
+        NSLog(@"NSObject size = %zd, person size = %zd",
+              class_getInstanceSize([NSObject class]),
+              class_getInstanceSize([person class])
+              );
+        
+        NSLog(@"malloc size = %zd",
+            
+                malloc_size((__bridge void *)person)
+              );
 
     }
     return 0;
