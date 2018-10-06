@@ -66,15 +66,15 @@ int main(int argc, const char * argv[]) {
         // insert code here...
        
 //        NSObject *object = [[NSObject alloc] init];
-//        Person *person = [[Person alloc] init];
-//        Man *man = [[Man alloc] init];
+        Person *person = [[Person alloc] init];
+     //   Man *man = [[Man alloc] init];
 //
 //        /*
 //           class
 //
 //         */
 //        cj_objc_class *objectClass = (__bridge cj_objc_class *)[object class];
-//        cj_objc_class *personClass = (__bridge cj_objc_class *)[person class];
+        cj_objc_class *personClass = (__bridge cj_objc_class *)[person class];
 //        cj_objc_class *manClass = (__bridge cj_objc_class *)[man class];
 //
 //        /*
@@ -90,7 +90,9 @@ int main(int argc, const char * argv[]) {
 //          class  内存信息
 //         */
 //        class_rw_t *objectClassData = objectClass->data();
-//        class_rw_t *personClassData = personClass->data();
+        class_rw_t *personClassData = personClass->data();
+        
+        //NSLog(@"demangledName === %@",[NSString stringWithCString:personClassData->demangledName encoding:NSUTF8StringEncoding]);
 //        class_rw_t *manClassData = manClass->data();
 //        /*
 //           meta class  内存信息

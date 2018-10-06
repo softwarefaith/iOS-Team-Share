@@ -14,6 +14,8 @@
 
 #import "BlockMaro.h"
 
+#import <objc/runtime.h>
+
 DEFINE_BLOCK_TYPE(TestBlock,int,int a,int b,int c);
 @interface ViewController ()
 
@@ -24,15 +26,20 @@ DEFINE_BLOCK_TYPE(TestBlock,int,int a,int b,int c);
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    TestBlock  test =  ^(int a,int b,int c){
-        
-        NSLog(@"-----");
-        return 0;
-    };
+   
     
-    test(1,2,3);
+    IMP imp = class_getMethodImplementation([self class], @selector(test:));
+    
+    id block = imp_getBlock(imp);
+    
+    NSLog(@"---````");
+
 }
 
+- (void)test:(int)a {
+    
+    NSLog(@"---");
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

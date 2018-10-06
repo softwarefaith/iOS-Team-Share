@@ -17,6 +17,9 @@
 #   define ISA_MASK        0x00007ffffffffff8ULL
 # endif
 
+
+
+
 #if __LP64__
 typedef uint32_t mask_t;
 #else
