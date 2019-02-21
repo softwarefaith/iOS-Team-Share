@@ -22,4 +22,13 @@
     int implA;
 }
 
+- (void)testOne:(int)i {
+    
+    
+    
+}
+- (void)testTWO{
+    
+}
+
 @end

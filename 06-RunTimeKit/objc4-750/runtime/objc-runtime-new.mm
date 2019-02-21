@@ -839,6 +839,7 @@ static void methodizeClass(Class cls)
 
     // Install methods and properties that the class implements itself.
     method_list_t *list = ro->baseMethods();
+    //attachLists 头插法
     if (list) {
         prepareMethodLists(cls, &list, 1, YES, isBundleClass(cls));
         rw->methods.attachLists(&list, 1);

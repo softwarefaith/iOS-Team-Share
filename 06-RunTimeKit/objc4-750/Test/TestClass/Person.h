@@ -15,6 +15,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@protocol Person <NSObject>
+
+@property(nonatomic,copy) NSString *name;
+
+@end
+
 @interface Person : NSObject {
     
 @public
@@ -25,10 +31,14 @@ NS_ASSUME_NONNULL_BEGIN
     char publicC;
 }
 
+@property(nonatomic,assign) int iXXX;
+
 @property(nonatomic,copy) NSString *name;
 
-@property(nonatomic,copy) NSString *ID;
+@property(nonatomic,copy,nonnull) NSString *ID;
 
+- (void)testOne:(int)i;
+- (void)testTWO;
 
 
 @end

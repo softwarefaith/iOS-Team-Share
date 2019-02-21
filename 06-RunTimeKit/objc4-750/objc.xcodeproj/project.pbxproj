@@ -130,6 +130,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2EBA522621F9BF7600243CBC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC0620554660B00DB518D;
+			remoteInfo = objc;
+		};
 		5255259F21C68E5000072CE6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
@@ -693,6 +700,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				2EBA522721F9BF7600243CBC /* PBXTargetDependency */,
 			);
 			name = Test;
 			productName = Test;
@@ -915,6 +923,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2EBA522721F9BF7600243CBC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2AAC0620554660B00DB518D /* objc */;
+			targetProxy = 2EBA522621F9BF7600243CBC /* PBXContainerItemProxy */;
+		};
 		525525A021C68E5000072CE6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D2AAC0620554660B00DB518D /* objc */;

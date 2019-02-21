@@ -7,6 +7,8 @@
 
 #import "RuntimeKit.h"
 
+
+
 @implementation RuntimeKit
 
 /*
@@ -60,6 +62,64 @@
     }
     free(ivarList);
     return mutableArray.copy;
+}
+/*
+ *4.获取成员属性
+ class_rw_t结构体中有propertys，遍历获取property_t，objc_property_t是property_t的别名
+ property_getName：prop->name
+ property_getAttributes：prop->attributes
+ struct property_t {
+ const char *name;       //属性名
+ const char *attributes;         //属性内容：strong、weak、编码等
+ };
+ */
++(NSArray *)fetchPropertyList:(Class)cls {
+    
+    unsigned int outCount = 0;
+    objc_property_t *propertyList = class_copyPropertyList(cls, &outCount);
+    
+    NSMutableArray *mutableArray = [NSMutableArray arrayWithCapacity:outCount];
+    
+    for (unsigned int i = 0; i < outCount; i ++) {
+        
+        objc_property_t property = propertyList[i];
+        const char *propertyName = property_getName(property);
+        const char *propertyType =  property_getAttributes(property);
+        NSDictionary *properytDic = @{@"propertyName":[NSString stringWithUTF8String:propertyName],@"propertyType":[NSString stringWithUTF8String:propertyType]};
+        
+        [mutableArray addObject:properytDic];
+
+    }
+    free(propertyList);
+
+    return [mutableArray copy];
+}
+/*
+ *5.获取类的方法
+ 遍历class_rw_t中的method_array_t获取Method
+ struct method_t {
+ SEL name;       //方法名
+ const char *types;      //方法类型
+ }
+ method_getName：method->name
+ method_getTypeEncoding：method->types
+ */
+
++ (NSArray *)fetchMethodList:(Class)cls {
+    
+    unsigned int outCount = 0;
+    Method *methodList =  class_copyMethodList(cls, &outCount);
+    NSMutableArray *mutableArray = [NSMutableArray arrayWithCapacity:outCount];
+
+    for (unsigned int i = 0; i < outCount; i++) {
+        Method method = methodList[i];
+        SEL methodName = method_getName(method);
+        const char *methodype = method_getTypeEncoding(method);
+        NSDictionary *methodDic = @{@"methodName":NSStringFromSelector(methodName),@"methodype":[NSString stringWithUTF8String:methodype]};
+        [mutableArray addObject:methodDic];
+    }
+    free(methodList);
+    return [mutableArray copy];
 }
 
 @end

@@ -11,9 +11,18 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
 
-        Class JPerson = objc_allocateClassPair([NSObject class], [@"JPerson" UTF8String], 0);
-        objc_registerClassPair(JPerson);
-        
+     /*
+      
+      struct objc_class : objc_object {
+      // Class ISA;
+      Class superclass;
+      cache_t cache;             // formerly cache pointer and vtable
+      class_data_bits_t bits;
+      
+      */
+    Person * p = [[Person alloc] init];
+    NSLog(@"%p",objc_getClass("Person"));
+        NSLog(@"Hello word");
 
     }
     return 0;
